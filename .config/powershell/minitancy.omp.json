@@ -1,0 +1,65 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": false,
+      "segments": [
+        {
+          "type": "time",
+          "style": "plain",
+          "template": "[{{ .CurrentDate | date \"15:04\" }}] ",
+          "background": "transparent",
+          "foreground": "p:lightGray"
+        },
+        {
+          "type": "session",
+          "style": "plain",
+          "template": "{{ .UserName }}",
+          "background": "transparent",
+          "foreground": "cyan"
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "template": ":",
+          "foreground": "p:lightGray"
+        },
+        {
+          "type": "path",
+          "style": "plain",
+          "background": "transparent",
+          "foreground": "yellow",
+          "template": "{{ .Path }} ",
+          "properties": {
+            "style": "full"
+          }
+        },
+        {
+          "type": "git",
+          "style": "plain",
+          "template": "git:(<magenta>{{ .HEAD }}</>{{ if .Working.Changed }} <green>+{{ .Working.Added }}</> <yellow>~{{ .Working.Modified }}</> <red>-{{ .Working.Deleted }}</>{{ end }}) ",
+          "background": "transparent",
+          "foreground": "cyan",
+          "properties": {
+            "fetch_status": true,
+            "branch_icon": ""
+          }
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "template": "|",
+          "foreground": "red"
+        }
+      ]
+    }
+  ],
+  "console_title_template": "{{ .Shell }} in {{ .Folder }}",
+  "final_space": true,
+  "palette": {
+    "lightGray": "#8c8989"
+  },
+  "version": 2
+}

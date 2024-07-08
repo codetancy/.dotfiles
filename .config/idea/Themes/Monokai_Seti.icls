@@ -1,0 +1,108 @@
+<scheme name="Monokai Seti" version="142" parent_scheme="Darcula">
+  <metaInfo>
+    <property name="created">2022-09-15T17:01:49</property>
+    <property name="ide">CLion</property>
+    <property name="ideVersion">2022.2.1.0.0</property>
+    <property name="modified">2022-09-15T17:01:58</property>
+    <property name="originalScheme">Monokai Seti</property>
+  </metaInfo>
+  <attributes>
+    <option name="DEFAULT_CLASS_NAME">
+      <value>
+        <option name="FOREGROUND" value="70d9ef" />
+      </value>
+    </option>
+    <option name="DEFAULT_COMMA">
+      <value />
+    </option>
+    <option name="DEFAULT_DOC_COMMENT">
+      <value>
+        <option name="FOREGROUND" value="fbef98" />
+      </value>
+    </option>
+    <option name="DEFAULT_FUNCTION_DECLARATION">
+      <value>
+        <option name="FOREGROUND" value="abe322" />
+      </value>
+    </option>
+    <option name="DEFAULT_IDENTIFIER">
+      <value />
+    </option>
+    <option name="DEFAULT_INTERFACE_NAME">
+      <value>
+        <option name="FOREGROUND" value="70efc9" />
+      </value>
+    </option>
+    <option name="DEFAULT_KEYWORD">
+      <value>
+        <option name="FOREGROUND" value="ff0d77" />
+      </value>
+    </option>
+    <option name="DEFAULT_METADATA">
+      <value>
+        <option name="FOREGROUND" value="abe322" />
+      </value>
+    </option>
+    <option name="DEFAULT_NUMBER">
+      <value>
+        <option name="FOREGROUND" value="ae7eff" />
+      </value>
+    </option>
+    <option name="DEFAULT_PARAMETER">
+      <value>
+        <option name="FOREGROUND" value="fbef98" />
+      </value>
+    </option>
+    <option name="DEFAULT_SEMICOLON">
+      <value />
+    </option>
+    <option name="DEFAULT_STRING">
+      <value>
+        <option name="FOREGROUND" value="fbef98" />
+      </value>
+    </option>
+    <option name="JSON.KEYWORD">
+      <value>
+        <option name="FOREGROUND" value="ae7eff" />
+      </value>
+    </option>
+    <option name="JSON.PROPERTY_KEY">
+      <value>
+        <option name="FOREGROUND" value="70d9ef" />
+      </value>
+    </option>
+    <option name="PY.BUILTIN_NAME">
+      <value>
+        <option name="FOREGROUND" value="70d9ef" />
+      </value>
+    </option>
+    <option name="PY.KEYWORD_ARGUMENT">
+      <value>
+        <option name="FOREGROUND" value="fb9898" />
+      </value>
+    </option>
+    <option name="PY.PREDEFINED_DEFINITION">
+      <value>
+        <option name="FOREGROUND" value="abe322" />
+      </value>
+    </option>
+    <option name="PY.PREDEFINED_USAGE">
+      <value>
+        <option name="FOREGROUND" value="abe322" />
+      </value>
+    </option>
+    <option name="PY.SELF_PARAMETER">
+      <value>
+        <option name="FOREGROUND" value="70d9ef" />
+        <option name="FONT_TYPE" value="2" />
+      </value>
+    </option>
+    <option name="TEXT">
+      <value>
+        <option name="FOREGROUND" value="d1d4d3" />
+        <option name="BACKGROUND" value="16191b" />
+        <option name="EFFECT_TYPE" value="5" />
+      </value>
+    </option>
+  </attributes>
+</scheme>

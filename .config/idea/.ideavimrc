@@ -1,0 +1,149 @@
+" For ideas please refer to:
+" https://jb.gg/abva4t
+" https://jb.gg/share-ideavimrc
+
+" For a complete list of actions
+" https://gist.github.com/zchee/9c78f91cc5ad771c1f5d
+
+" Reload vim rc
+map \r <Action>(IdeaVim.ReloadVimRc.reload)
+
+let mapleader = " "
+
+set number relativenumber
+set showcmd
+set scrolloff=10
+
+""" Idea configurations
+set ideajoin
+set NERDTree
+set highlightedyank
+
+" Show mode in status bar
+set showmode
+
+" Do incremental search
+set incsearch
+
+" Disable annoying sound
+set visualbell
+set noerrorbells
+
+" Unbind <Esc>
+noremap <Esc> <nop>
+
+" Unbind arrow keys
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+
+" Use Left and Right for buffer navigation
+noremap <Left> :bp<CR>
+noremap <Right> :bn<CR>
+
+" Unbound .
+noremap . <Nop>
+
+" Use Ctrl+j as Esc
+nnoremap <C-j> <Esc>
+inoremap <C-j> <Esc>
+vnoremap <C-j> <Esc>
+xnoremap <C-j> <Esc>
+
+" Fast save
+nmap <leader>w :w<CR>
+
+" Delete into black hole
+nnoremap <leader>d "_d
+xnoremap <leader>d "_d
+nnoremap x "_x
+nnoremap r "_r
+
+" Clipboard
+nnoremap <leader>d "*d
+vnoremap <leader>d "*d
+nnoremap <leader>y "*y
+vnoremap <leader>y "*y
+nnoremap <leader>P "*P
+vnoremap <leader>P "*P
+nnoremap <leader>p "*p
+vnoremap <leader>p "*p
+
+" Insert line below
+nnoremap <CR> o<Esc>
+inoremap <C-CR> <Esc>o
+
+" Maintain selection after indent
+vnoremap < <gv
+vnoremap > >gv
+
+" Autocomplete navigations
+" Ctrl + n -> Next
+" Ctrl + p -> Previous
+
+" Search
+map / <Action>(Find)
+map ? <Action>(Find)
+map <leader>/ <Action>(FindInPath)
+
+" Useful actions
+map <leader>r <Action>(Rename)
+map <leader>f <Action>(ReformatCode)
+map <leader>o <Action>(OptimizeImports)
+map <leader>c <Action>(CommentByLineComment)
+map <leader>z <Action>(ToggleDistractionFreeMode)
+map <leader>q <Action>(CloseEditor)
+map <leader>sv <Action>(SplitVertically)
+map <leader>n <Action>(NewFile)
+
+map <leader>B <Action>(BuildProject)
+map <leader>R <Action>(Run)
+map <leader>D <Action>(Debug)
+map <leader>N <Action>(Resume)
+map <leader>S <Action>(Stop)
+map <leader>T <Action>(ToggleLineBreakpoint)
+
+" Navigation
+nnoremap gt gg
+nnoremap ge G
+nmap gb <Action>(Back)
+nmap gf <Action>(Forward)
+nmap gh <Action>(PrevSplitter)
+nmap gl <Action>(NextSplitter)
+nmap gk <Action>(MethodUp)
+nmap gj <Action>(MethodDown)
+nmap gd <Action>(GoToTypeDeclaration)
+nmap gr <Action>(RecentFiles)
+nmap gu <Action>(FindUsages)
+
+sethandler <C-A> a:ide
+
+"Shortcut conflict"
+sethandler <C-2> a:vim
+sethandler <C-S-2> a:vim
+sethandler <C-6> a:vim
+sethandler <C-S-6> a:vim
+sethandler <C-B> a:vim
+sethandler <C-C> a:vim
+sethandler <C-D> a:vim
+sethandler <C-E> a:vim
+sethandler <C-F> a:vim
+sethandler <C-G> a:vim
+sethandler <C-H> a:vim
+sethandler <C-I> a:vim
+sethandler <C-J> a:vim
+sethandler <C-K> a:vim
+sethandler <C-L> a:vim
+sethandler <C-M> a:vim
+sethandler <C-N> a:vim
+sethandler <C-O> a:vim
+sethandler <C-P> a:vim
+sethandler <C-R> a:vim
+sethandler <C-S> a:vim
+sethandler <C-T> a:vim
+sethandler <C-U> a:vim
+sethandler <C-V> a:vim
+sethandler <C-W> a:vim
+sethandler <C-X> a:vim
+sethandler <C-[> a:vim
+sethandler <C-\> a:vim
+sethandler <C-]> a:vim

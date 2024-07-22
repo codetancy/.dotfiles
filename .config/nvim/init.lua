@@ -1,3 +1,3 @@
-require("options")
-require("plugins")
-require("mappings")
+require("config.options")
+require("config.remap")
+require("config.lazy")

@@ -14,7 +14,7 @@ vim.keymap.set("n", "Q", "<Nop>")
 vim.keymap.set("n", "<C-e>", ":Ex<CR>")
 
 -- Fast [W]rite
-vim.keymap.set("n", "<leader>w", ":w<CR>")
+vim.keymap.set("n", "<leader>w", ":w<CR>", { silent = true })
 
 -- Fast source reload
 vim.keymap.set("n", "<leader>\\", ":so<CR>")
@@ -28,3 +28,14 @@ vim.keymap.set("n", "N", "Nzzzv")
 -- Center cursor vertically when navigating
 vim.keymap.set("n", "H", "^")
 vim.keymap.set("n", "L", "$")
+
+-- Yank to clipboard
+vim.keymap.set({ "n", "v" }, "<leader>y", "\"+y")
+
+-- Discard delete
+vim.keymap.set("n", "x", "\"_x")
+vim.keymap.set("n", "r", "\"_r")
+
+-- Paste from clipboard
+vim.keymap.set("n", "<leader>p", "\"+p")
+vim.keymap.set("v", "<leader>p", "\"+P")

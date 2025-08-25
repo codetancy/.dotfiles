@@ -13,7 +13,7 @@ return {
                 "rust",
                 "python",
                 "toml",
-                "gleam",
+                "go",
             },
             sync_install = false,
             highlight = { enable = true },

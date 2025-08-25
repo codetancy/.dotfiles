@@ -1,0 +1,6 @@
+-- vim.api.nvim_create_autocmd('QuickFixCmdPost', {
+--     group = vim.api.nvim_create_augroup('my.lcl', {}),
+--     callback = function()
+--         vim.cmd.lclose()
+--     end
+-- })

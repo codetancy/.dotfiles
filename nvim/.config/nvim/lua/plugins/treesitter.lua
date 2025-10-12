@@ -14,6 +14,7 @@ return {
                 "python",
                 "toml",
                 "go",
+                "fsharp",
             },
             sync_install = false,
             highlight = { enable = true },

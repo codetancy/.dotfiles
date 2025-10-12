@@ -4,6 +4,7 @@ vim.opt.hlsearch = false      -- No highlighting for word searching
 
 vim.opt.number = true         -- Show current line number
 vim.opt.relativenumber = true -- Relative line number for better commands
+vim.opt.signcolumn = "yes"    -- Spacing left of number
 
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
@@ -25,6 +26,8 @@ vim.opt.scrolloff = 8
 
 vim.opt.splitbelow = true
 vim.opt.splitright = true
+
+vim.opt.conceallevel = 0
 
 vim.opt.laststatus = 3
 

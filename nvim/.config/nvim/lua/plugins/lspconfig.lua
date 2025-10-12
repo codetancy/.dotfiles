@@ -19,7 +19,19 @@ return {
                 }
             },
             clangd = {},
-            gopls = {}
+            gopls = {
+                settings = {
+                    gopls = {
+                        linkTarget = "pkg.go.dev",
+                    }
+                }
+            },
+            -- fsautocomplete = {
+            --     settings = {
+            --         FSharp = {
+            --         }
+            --     }
+            -- }
         }
 
         for server, config in pairs(lsps) do
@@ -27,30 +39,31 @@ return {
             vim.lsp.enable(server)
         end
 
-        vim.api.nvim_create_user_command('ToggleLoclist', function()
-            local conf = vim.fn.getloclist(0, { winid = 1 })
-            if conf.winid == 0 then
-                vim.diagnostic.setloclist()
-            else
-                vim.cmd.lclose()
-            end
-        end, {})
-
         vim.api.nvim_create_autocmd('LspAttach', {
             group = vim.api.nvim_create_augroup('my.lsp', {}),
-            callback = function()
+            callback = function(args)
+                local opts = { buffer = args.buf }
                 -- For a full list of capabilities, run:
                 -- :lua =vim.lsp.get_clients()[1].server_capabilities
                 -- Then check client.server_capabilities.xxxProvider from
                 -- local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
-                vim.keymap.set("n", "<leader>l", ":ToggleLoclist<CR>")
-                vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end)
-                vim.keymap.set("n", "<leader>m", function() vim.diagnostic.open_float() end)
-            end
-        })
+                vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
+                vim.keymap.set("n", "<leader>qf", function() vim.lsp.buf.code_action() end, opts)
+                vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end, opts)
+                vim.keymap.set("n", "<leader>m", function() vim.diagnostic.open_float() end, opts)
 
-        vim.diagnostic.config({
-            virtual_lines = true
+                -- Somewhat I have to manually unset the default in order to
+                -- override it
+                vim.keymap.del("n", "K", opts)
+                vim.keymap.set("n", "K", function()
+                    vim.lsp.buf.hover({
+                        max_width = 80,
+                        max_height = 15,
+                        wrap = false,
+                        border = 'rounded'
+                    })
+                end, opts)
+            end
         })
 
     end

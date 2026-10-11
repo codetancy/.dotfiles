@@ -1,8 +1,5 @@
 require("config.options")
-require("config.diagnostics")
 require("config.remap")
-require("config.terminal")
-require("config.aucmds")
-require("config.usercmds")
 require("config.lazy")
-require("config.clipboard")
+
+-- vim.cmd.colorscheme("ethereal")

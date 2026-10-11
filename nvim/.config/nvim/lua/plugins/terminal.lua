@@ -1,0 +1,42 @@
+return {
+    {
+        -- 'akinsho/toggleterm.nvim',
+        -- version = "*",
+        -- config = function()
+        --     require("toggleterm").setup({
+        --         direction = "float",
+        --         border = "curved"
+        --     })
+        --
+        --     -- I do not directly set the mapping in setup because the
+        --     -- keystroke is listened in Insert mode, which would
+        --     -- unintentionally open the terminal when typing words that start
+        --     -- with 't'
+        --     vim.keymap.set('n', '<leader>t', ':ToggleTerm<CR>')
+        --
+        --     function _G.set_terminal_keymaps()
+        --         local opts = { buffer = 0 }
+        --
+        --         -- So I can use vim mode in the terminal, like when I want to
+        --         -- yank command outputs
+        --         vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
+        --
+        --         -- So I can toggle the terminal
+        --         vim.keymap.set('t', '<C-j>', function() vim.cmd('ToggleTerm') end, opts)
+        --
+        --         -- So I can navigate between windows if I ever change the
+        --         -- direction to something other than float
+        --         -- vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]], opts)
+        --         -- vim.keymap.set('t', '<C-j>', [[<Cmd>wincmd j<CR>]], opts)
+        --         -- vim.keymap.set('t', '<C-k>', [[<Cmd>wincmd k<CR>]], opts)
+        --         -- vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]], opts)
+        --         -- vim.keymap.set('t', '<C-w>', [[<C-\><C-n><C-w>]], opts)
+        --     end
+        --
+        --     vim.api.nvim_create_autocmd("TermOpen", {
+        --         pattern = [[term://*]],
+        --         callback = set_terminal_keymaps
+        --     })
+        -- end
+    }
+}

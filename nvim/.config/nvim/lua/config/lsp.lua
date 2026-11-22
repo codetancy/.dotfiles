@@ -1,4 +1,4 @@
-vim.lsp.enable({ "lua_ls", "rust_analyzer", "clangd" })
+vim.lsp.enable({ "lua_ls", "rust_analyzer", "clangd", "pyrefly" })
 
 vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(args)

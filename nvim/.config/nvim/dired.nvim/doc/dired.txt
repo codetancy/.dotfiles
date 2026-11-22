@@ -1,0 +1,81 @@
+*dired.txt*  Emacs dired for Neovim
+
+A directory is a buffer listing its files in `ls -al` form. Mark files, then
+act on them. Opening a directory (`nvim .`, `:e dir`) shows it in dired.
+
+COMMANDS                                                       *dired-commands*
+
+:Dired [dir]    Open {dir}, or the current file's directory.
+:DiredJump      Open the current file's directory with the cursor on the file
+                (Emacs dired-jump). Mapped to <C-e> in this config.
+
+KEYS                                                               *dired-keys*
+
+Press ? in a dired buffer for the full list. Vim motions keep their meaning:
+j k / n N gg G v work as usual, and v then m, u or d acts on the selection.
+
+Navigation
+  <CR> e f    open file or directory       o     open in the other window
+  ^ -         parent directory             q     back to the previous buffer
+  <C-l>       re-read (Emacs g)            s     sort by name or date
+  (           hide or show details         g.    hide or show dotfiles
+  < >         previous / next directory    ?     key list
+
+Marks ("*" marks for an operation, "D" flags for deletion)
+  m u d       mark, unmark, flag [count]   t     toggle marks
+  U           unmark all                   <BS>  unmark previous line
+  */ ** *@    mark dirs, executables, symlinks
+  *.          mark by extension            *N    count marks
+  %m %d       mark / flag names matching a Vim regexp
+  %g          mark files whose contents match (ripgrep)
+  ~           flag backup files
+
+Operations act on the marked files, or the file on the cursor line.
+  x           delete flagged files         D     delete marked files
+  C R         copy, rename or move         S Y H symlink, relative symlink, hard link
+  +           create directory             M T   chmod, touch
+  ! &         shell command (lone * = all files once, lone ? = each file)
+  %R          rename by Vim regexp         %u %l upper / lower case names
+  =           diff                         E     open with the system app
+  F           edit marked files            w W   copy names / absolute paths
+  y           file type
+
+Search
+  A           grep in marked files and directories (Telescope live_grep)
+  Q           query replace in marked files: :cdo :s with confirmation;
+              buffers stay unsaved, :wa writes them
+  <leader>sf  find files under this directory
+  <leader>sg  grep under this directory
+
+WDIRED                                                                 *wdired*
+
+<C-x><C-q> turns the listing into one name per line. Edit names with any Vim
+command (:s, macros, visual block) and :w renames the files; a name with a
+slash moves the file, creating directories as needed. Swaps and cycles work.
+Adding, deleting, joining or reordering lines is refused at :w. <C-c><C-k>
+aborts. Nothing is renamed if any rename fails: completed renames are undone.
+
+SAFETY                                                           *dired-safety*
+
+Deleting asks for a typed "yes"; a non-empty directory asks again. Copies and
+renames ask before overwriting a file and never merge into an existing
+directory. Directories are never copied or moved into themselves.
+
+OPTIONS                                                         *dired-options*
+
+require("dired").setup({
+    hijack_netrw = true,   -- show directories in dired instead of netrw
+    show_hidden = true,    -- list dotfiles (toggle with g.)
+    dirs_first = true,     -- directories before files
+    details = true,        -- ls -l columns (toggle with ()
+    sort = "name",         -- or "time"
+    dwim_target = true,    -- default copy/rename target: another dired window
+    keymaps = {},          -- { ["lhs"] = "module.action" or false }
+})
+
+Highlights: DiredHeader, DiredDirectory, DiredSymlink, DiredBrokenLink,
+DiredSymlinkTarget, DiredExecutable, DiredMarked, DiredFlagged, DiredDetails.
+
+Tests: nvim --headless -u NONE -l tests/run.lua
+
+ vim:tw=78:ft=help:norl:
